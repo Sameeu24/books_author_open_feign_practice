@@ -6,11 +6,9 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name = "author-service",url = "http://localhost:8100/api/v1/authorservice/")
+@FeignClient(name = "author-service",url = "http://localhost:8100/api/v1/authors")
 public interface AuthorServiceClient {
 
-    @GetMapping("/author/{id}")
+    @GetMapping("/{id}")
     public Author getAuthorById(@PathVariable long id);
-
-
 }

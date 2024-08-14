@@ -1,18 +1,25 @@
 package com.ust.book_service.domain;
 
 
-import lombok.*;
-import org.springframework.stereotype.Service;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@Data
 public class Book {
-
     private Long id;
     private String title;
     private Long authorId;
-    // Getters and setters
+    public Book(Long id,String title,Long authorId){
+        this.id=id;
+        this.title=title;
+        this.authorId=authorId;
+    }
+    public void toDto(){
+
+    }
+
 }

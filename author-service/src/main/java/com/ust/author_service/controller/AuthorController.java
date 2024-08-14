@@ -12,23 +12,23 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/v1/authorservice/")
+@RequestMapping("/api/v1/authors")
 public class AuthorController {
 
 
-    private AuthorService authorService;
+    private final AuthorService authorService;
 
     public AuthorController(AuthorService authorService) {
         this.authorService = authorService;
     }
 
-    @GetMapping("/author")
+    @GetMapping("/")
     public ResponseEntity<List<Author>> getAuthors(){
         var responseBody=authorService.getAllAuthors();
         return ResponseEntity.ok(responseBody);
     }
 
-    @GetMapping("/author/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Author> getAuthorById(@PathVariable long id){
         var responseBody = authorService.getAuthorById(id);
         return ResponseEntity.ok(responseBody);
